@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="question">What is this for?</string>
+    <string name="optionA">RadioButton</string>
+    <string name="optionB">RadioButton</string>
+    <string name="optionC">RadioButton</string>
+    <string name="optionD">RadioButton</string>
+    <string name="question_number">Question-1</string>
+    <string name="next">TODO</string>
+</resources>
