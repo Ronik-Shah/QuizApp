@@ -8,8 +8,31 @@ import com.example.quizapp.models.APIData
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_quiz.*
 
-internal enum class Category {
-    GeneralKnowledge, Books, Film, Music, MusicalAndTheaters, Television, VideoGames, BoardGames, ScienceNature, Computers, Mathematics, Mythology, Sports, Geography, History, Politics, Art, Celebrities, Animals, Vehicles, Comics, Gadgets, JapaneseAnimeAndManga, CartoonAndAnimations
+enum class Category {
+    GeneralKnowledge,
+    Books ,
+    Film ,
+    Music,
+    MusicalAndTheaters,
+    Television,
+    VideoGames,
+    BoardGames,
+    ScienceNature,
+    Computers,
+    Mathematics,
+    Mythology,
+    Sports,
+    Geography,
+    History,
+    Politics,
+    Art,
+    Celebrities,
+    Animals,
+    Vehicles,
+    Comics,
+    Gadgets,
+    JapaneseAnimeAndManga,
+    CartoonAndAnimations
 }
 
 class QuizActivity : AppCompatActivity() {
@@ -22,7 +45,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        val quizQuestions = APIData(Category.Computers., window.decorView.rootView)
+        val quizQuestions = APIData(10, window.decorView.rootView)
         questions = quizQuestions.questions
         options = quizQuestions.options
         correctAnswers = quizQuestions.correctAnswers
