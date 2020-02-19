@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+//import com.example.quizapp.models.APIData
+//import java.io.Serializable
 
 class ScoreActivity : AppCompatActivity() {
 
@@ -13,7 +15,11 @@ class ScoreActivity : AppCompatActivity() {
     }
 
     fun restartQuiz(view : View){
+//        val quizQuestions = APIData(10,window.decorView.rootView)
         val i = Intent(this,QuizActivity::class.java)
+//        i.putExtra("Questions", quizQuestions.questions as Serializable)
+//        i.putExtra("CorrectAnswers",quizQuestions.correctAnswers as Serializable)
+//        i.putExtra("Options",quizQuestions.options as Serializable)
         startActivity(i)
     }
 

@@ -121,11 +121,12 @@
             android:background="@drawable/ripple"
             android:backgroundTint="@color/buttonColor"
             android:clickable="true"
-            android:text="NEXT"
+            android:text="Next"
             android:textColor="@color/colorPrimaryDark"
             android:contentDescription="@string/next"
             android:focusable="true"
-            android:onClick="changeQuestionAndOptions"
-            app:srcCompat="@android:drawable/ic_media_ff" />
+            android:onClick="changeQuizQuestion"
+            app:srcCompat="@android:drawable/ic_media_ff"
+            tools:ignore="OnClick" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
