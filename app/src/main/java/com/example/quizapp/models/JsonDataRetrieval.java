@@ -17,17 +17,36 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+
 public class JsonDataRetrieval extends AsyncTask<String,Integer,String> implements Serializable {
 
     private ArrayList<String> questions = new ArrayList<>();
     private  ArrayList<String[]> options = new ArrayList<>();
     private  ArrayList<String> correctAnswers = new ArrayList<>();
+//    private Context context;
+//    ProgressDialog progressDialog;
+
+
+    public JsonDataRetrieval(){
+//        this.context = context;
+//        progressDialog = new ProgressDialog(context);
+//        progressDialog.setMessage("Please Wait");
+
+    }
 
     @Override
     protected void onPreExecute() {
+//        progressDialog.show();
         super.onPreExecute();
 
     }
+
+
+//    @Override
+//    protected void onProgressUpdate(Integer... values) {
+//        setProgessPercentage(values[0]);
+//        super.onProgressUpdate(values);
+//    }
 
     @Override
     protected String doInBackground(String... strings){
@@ -80,10 +99,12 @@ public class JsonDataRetrieval extends AsyncTask<String,Integer,String> implemen
                     Collections.shuffle(Arrays.asList(finalOptions));
                     options.add(finalOptions);
                 }
+
             }
         }catch (JSONException | UnsupportedEncodingException e){
             e.printStackTrace();
         }
+//       progressDialog.dismiss();
     }
 
     public ArrayList<String> getQuestions() {
@@ -97,4 +118,8 @@ public class JsonDataRetrieval extends AsyncTask<String,Integer,String> implemen
     public ArrayList<String> getCorrectAnswers() {
         return correctAnswers;
     }
+
+//    public int setProgressPercentage(){
+//
+//    }
 }

@@ -112,21 +112,49 @@
             android:layout_width="match_parent"
             android:layout_height="100dp" />
 
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/ripple"
-            android:backgroundTint="@color/buttonColor"
-            android:clickable="true"
-            android:text="Next"
-            android:textColor="@color/colorPrimaryDark"
-            android:contentDescription="@string/next"
-            android:focusable="true"
-            android:onClick="changeQuizQuestion"
-            app:srcCompat="@android:drawable/ic_media_ff"
-            tools:ignore="OnClick" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/prevButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ripple"
+                android:backgroundTint="@color/buttonColor"
+                android:clickable="true"
+                android:contentDescription="@string/next"
+                android:focusable="true"
+                android:onClick="previousQuizQuestion"
+                android:text="Prev"
+                android:textColor="@color/colorPrimaryDark"
+                app:srcCompat="@android:drawable/ic_media_ff"
+                />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ripple"
+                android:backgroundTint="@color/buttonColor"
+                android:clickable="true"
+                android:contentDescription="@string/next"
+                android:focusable="true"
+                android:onClick="nextQuizQuestion"
+                android:text="Next"
+                android:textColor="@color/colorPrimaryDark"
+                app:srcCompat="@android:drawable/ic_media_ff" />
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
