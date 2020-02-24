@@ -1,34 +1,57 @@
 package com.example.quizapp
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.quizapp.models.JsonDataRetrieval
 import com.example.quizapp.models.StaticData
+import com.ramotion.cardslider.CardSliderLayoutManager
+import com.ramotion.cardslider.CardSnapHelper
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.io.InputStreamReader
 import java.io.UnsupportedEncodingException
+import java.net.HttpURLConnection
+import java.net.URL
 import java.net.URLDecoder
 import java.util.*
-import kotlin.collections.ArrayList
-
-//import com.example.quizapp.models.APIData
-//import java.io.Serializable
-//import java.util.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
-    private var questions = ArrayList<String>()
-    private var correctAnswers = ArrayList<String>()
-    private val options = ArrayList<Array<String>>()
+    inner class JsonDataRetrieval : AsyncTask<String, Void, String>() {
+
+        override fun doInBackground(vararg strings: String?): String? {
+            val uri: URL
+            val api = StringBuffer()
+            val httpURLConnection: HttpURLConnection
+            return try {
+                uri = URL(strings[0])
+                httpURLConnection = uri.openConnection() as HttpURLConnection
+                val isr =
+                    InputStreamReader(httpURLConnection.inputStream)
+                var data = isr.read()
+                while (data >= 0) {
+                    api.append(data.toChar())
+                    data = isr.read()
+                }
+                api.toString()
+            } catch (IOException: Exception) {
+                IOException.printStackTrace()
+                "FAILED : MALFORMED EXCEPTION"
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        homePageRecyclerView.layoutManager = CardSliderLayoutManager(this)
+        CardSnapHelper().attachToRecyclerView(homePageRecyclerView)
     }
 
     fun startQuiz(view: View) {
@@ -38,16 +61,13 @@ class MainActivity : AppCompatActivity() {
             "https://opentdb.com/api.php?amount=10&" + (10 + 9) + "&type=multiple&encode=url3986"
         ).get()
         onPostExecute(result)
-        println(questions.size)
         val i = Intent(this, QuizActivity::class.java)
-        i.putStringArrayListExtra("Questions",questions)
-        i.putStringArrayListExtra("CorrectAnswers",correctAnswers)
-        i.putExtra("Options",options)
         startActivity(i)
     }
 
+    //
     private fun onPostExecute(s: String) {
-        try {
+        try { //                    System.out.println(s);
             val responseCode = JSONObject(s).getString("response_code")
             if (responseCode != "0") Log.i(
                 "INFO",
@@ -60,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                         URLDecoder.decode(temp.getString("question"), "UTF-8")
                     val correctAnswer =
                         URLDecoder.decode(temp.getString("correct_answer"), "UTF-8")
-                    correctAnswers.add(correctAnswer)
+                    StaticData.correctAnswers.add(correctAnswer)
                     val incorrectAnswers =
                         Array(3) { index -> "Option $index" }
                     val temp2 = temp.getJSONArray("incorrect_answers")
@@ -69,14 +89,15 @@ class MainActivity : AppCompatActivity() {
                             URLDecoder.decode(temp2[j] as String, "UTF-8")
                         //                                Log.d("Option", incorrect_answers[j]);
                     }
-                    val finalOptions = Array(4) { index -> "Option $index" }
+                    var finalOptions =
+                        Array(4) { index -> "Option $index" }
                     for (j in finalOptions.indices) {
                         if (j == finalOptions.size - 1) finalOptions[j] =
                             correctAnswer else finalOptions[j] = incorrectAnswers[j]
                     }
-                    questions.add(question)
-                    listOf(*finalOptions).shuffled(Random(3))
-                    options.add(finalOptions)
+                    StaticData.questions.add(question)
+                    Collections.shuffle(finalOptions.asList())
+                    StaticData.options.add(finalOptions)
                 }
             }
         } catch (e: JSONException) {
@@ -84,6 +105,7 @@ class MainActivity : AppCompatActivity() {
         } catch (e: UnsupportedEncodingException) {
             e.printStackTrace()
         }
-
+        //       progressDialog.dismiss();
     }
+
 }
