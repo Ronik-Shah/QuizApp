@@ -128,7 +128,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/next"
                 android:focusable="true"
-                android:onClick="previousQuizQuestion"
+                android:onClick="toPrevQuestion"
                 android:text="Prev"
                 android:textColor="@color/colorPrimaryDark"
                 app:srcCompat="@android:drawable/ic_media_ff"
@@ -150,7 +150,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/next"
                 android:focusable="true"
-                android:onClick="nextQuizQuestion"
+                android:onClick="toNextQuestion"
                 android:text="Next"
                 android:textColor="@color/colorPrimaryDark"
                 app:srcCompat="@android:drawable/ic_media_ff" />
