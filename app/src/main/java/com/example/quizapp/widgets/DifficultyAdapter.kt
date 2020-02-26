@@ -1,56 +1,43 @@
 package com.example.quizapp.widgets
 
 import android.content.Context
-import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CursorAdapter
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.PagerAdapter
 import com.example.quizapp.R
 import com.example.quizapp.models.DifficultyModel
 
-class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    // Text View
-    var textView: TextView = view
-        .findViewById(R.id.difficulty_item_card_text)
-    var cardView : CardView = view.findViewById(R.id.difficulty_item_card_view)
+class DifficultyAdapter(private var model: ArrayList<DifficultyModel>, private var context: Context) :
+    PagerAdapter() {
 
-}
-
-
-class DifficultyAdapter : RecyclerView.Adapter<ViewHolder>{
-
-    var model = ArrayList<DifficultyModel>()
-    var context : Context
-
-    constructor(model : ArrayList<DifficultyModel>, context : Context){
-        this.model = model
-        this.context = context
+    override fun isViewFromObject(view: View, `object`: Any): Boolean {
+        return `object` == view
     }
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(context).inflate(
-                R.layout.difficulty_item_card,
-                parent,
-                false
-            )
-        )
-    }
-
-    override fun getItemCount(): Int {
+    override fun getCount(): Int {
         return model.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = model[position].title
-        holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context, model[position].color))
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val layout = LayoutInflater.from(context).inflate(R.layout.difficulty_item_card,container,false)
+        val cardTextView : TextView = layout.findViewById(R.id.difficulty_item_card_text)
+        val cardView : CardView = layout.findViewById(R.id.difficulty_item_card_view)
+
+        cardTextView.text = model[position].title
+        cardView.setCardBackgroundColor(model[position].color)
+        container.addView(layout,0)
+        return layout
     }
 
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        container.removeView(`object` as View)
+    }
 }
 
 

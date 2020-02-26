@@ -1,13 +1,12 @@
 package com.example.quizapp
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.ViewPager
 import com.example.quizapp.models.DifficultyModel
 import com.example.quizapp.models.StaticData
 import com.example.quizapp.widgets.DifficultyAdapter
@@ -61,9 +60,8 @@ class MainActivity : AppCompatActivity() {
         models.add(DifficultyModel("Easy", R.color.easyColor))
         models.add(DifficultyModel("Medium",R.color.mediumColor))
         models.add(DifficultyModel("Hard",R.color.hardColor))
-        homePageRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        homePageRecyclerView.adapter = DifficultyAdapter(models,this)
-
+        difficulty_view_pager.adapter = DifficultyAdapter(models,this)
+        difficulty_view_pager?.addOnPageChangeListener(ViewPager.SimpleOnPageChangeListener())
     }
     fun startQuiz(view: View) {
         val api = JsonDataRetrieval()
