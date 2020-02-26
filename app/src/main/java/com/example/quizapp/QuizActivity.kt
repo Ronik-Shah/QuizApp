@@ -1,7 +1,6 @@
 package com.example.quizapp
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -18,14 +17,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        questionNumber.text = "Question-1"
-        questionContent.text = StaticData.questions[0]
-        radioButtonA.text = StaticData.options[0][0]
-        radioButtonB.text = StaticData.options[0][1]
-        radioButtonC.text = StaticData.options[0][2]
-        radioButtonD.text = StaticData.options[0][3]
-
-        optionsRadioButton.clearCheck()
+        setText()
     }
 
     fun toPrevQuestion(view: View) {
@@ -36,10 +28,9 @@ class QuizActivity : AppCompatActivity() {
                 Snackbar.LENGTH_SHORT
             ).show()
         } else {
+            StaticData.count--
             setText()
             selectOption()
-            optionsRadioButton.clearCheck()
-            StaticData.count--
         }
     }
 
@@ -52,20 +43,21 @@ class QuizActivity : AppCompatActivity() {
                 "No option selected",
                 Snackbar.LENGTH_SHORT
             ).show()
+            selectedOptions.add("NULL")
         } else {
             selectedOptions.add(radioButton.text.toString())
         }
     }
 
     fun toNextQuestion(view: View) {
-        if (StaticData.count == StaticData.questions.size) {
+        try{
+            StaticData.count++
+            selectOption()
+            setText()
+            optionsRadioButton.clearCheck()
+        } catch (e : IndexOutOfBoundsException) {
             computeScore()
             startActivity(Intent(this, ScoreActivity::class.java))
-        } else {
-            setText()
-            selectOption()
-            optionsRadioButton.clearCheck()
-            StaticData.count++
         }
     }
 
@@ -83,10 +75,12 @@ class QuizActivity : AppCompatActivity() {
         for(i in selectedOptions){
             Log.i("Selected Answers",i)
         }
+        Log.i("Selected Answers Size", selectedOptions.size.toString())
 
         for(i in StaticData.correctAnswers){
             Log.i("Correct Answers",i)
         }
+        Log.i("Correct Answers Size", StaticData.correctAnswers.size.toString())
 
         for (i in 0 until selectedOptions.size) {
             if (selectedOptions[i] == StaticData.correctAnswers[i]) {

@@ -1,14 +1,16 @@
 package com.example.quizapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.quizapp.models.DifficultyModel
 import com.example.quizapp.models.StaticData
-import com.ramotion.cardslider.CardSliderLayoutManager
-import com.ramotion.cardslider.CardSnapHelper
+import com.example.quizapp.widgets.DifficultyAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONException
@@ -22,6 +24,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    var models  = ArrayList<DifficultyModel>()
 
     inner class JsonDataRetrieval : AsyncTask<String, Void, String>() {
 
@@ -50,10 +54,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        homePageRecyclerView.layoutManager = CardSliderLayoutManager(this)
-        CardSnapHelper().attachToRecyclerView(homePageRecyclerView)
+        initializeDifficultyCards()
     }
 
+    private fun initializeDifficultyCards(){
+        models.add(DifficultyModel("Easy", R.color.easyColor))
+        models.add(DifficultyModel("Medium",R.color.mediumColor))
+        models.add(DifficultyModel("Hard",R.color.hardColor))
+        homePageRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        homePageRecyclerView.adapter = DifficultyAdapter(models,this)
+
+    }
     fun startQuiz(view: View) {
         val api = JsonDataRetrieval()
         //            String encoded = URLEncoder.encode(city.getText().toString(),"UTF-8");

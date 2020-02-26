@@ -6,4 +6,7 @@
     <color name="buttonColor">#007BFF</color>
     <color name="radioButtonColor">#000000</color>
     <color name="buttonColorDark">#0040DD</color>
+    <color name="easyColor">#00C853</color>
+    <color name="mediumColor">#FFD600</color>
+    <color name="hardColor">#D50000</color>
 </resources>
