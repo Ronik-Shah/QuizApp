@@ -24,7 +24,11 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    var models  = ArrayList<DifficultyModel>()
+    private var models = ArrayList<DifficultyModel>()
+    private lateinit var adapter: DifficultyAdapter
+    private var colors = ArrayList<Int>()
+    private var difficultyLevels = Array(3) { i -> "$i"}
+    private lateinit var difficulty : String
 
     inner class JsonDataRetrieval : AsyncTask<String, Void, String>() {
 
@@ -54,20 +58,53 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeDifficultyCards()
+        difficultyLevels[0] = "easy"
+        difficultyLevels[1] = "medium"
+        difficultyLevels[2] = "hard"
+        difficulty = difficultyLevels[0]
+
     }
 
-    private fun initializeDifficultyCards(){
+    private fun initializeDifficultyCards() {
         models.add(DifficultyModel("Easy", R.color.easyColor))
-        models.add(DifficultyModel("Medium",R.color.mediumColor))
-        models.add(DifficultyModel("Hard",R.color.hardColor))
-        difficulty_view_pager.adapter = DifficultyAdapter(models,this)
-        difficulty_view_pager?.addOnPageChangeListener(ViewPager.SimpleOnPageChangeListener())
+        models.add(DifficultyModel("Medium", R.color.mediumColor))
+        models.add(DifficultyModel("Hard", R.color.hardColor))
+        adapter = DifficultyAdapter(models, this)
+        colors.add(resources.getColor(R.color.easyColor))
+        colors.add(resources.getColor(R.color.mediumColor))
+        colors.add(resources.getColor(R.color.hardColor))
+        difficulty_view_pager.adapter = DifficultyAdapter(models, this)
+        difficulty_view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                if (position < adapter.count - 1 && position < colors.size - 1) {
+                    main_activity_constraint_layout.setBackgroundColor(colors[position])
+                    start_button.setBackgroundColor(colors[position])
+                }else{
+                    main_activity_constraint_layout.setBackgroundColor(colors[colors.size - 1])
+                    start_button.setBackgroundColor(colors[colors.size-1])
+                }
+            }
+
+            override fun onPageSelected(position: Int) {
+                difficulty = difficultyLevels[position]
+                println(difficulty)
+            }
+
+        })
     }
+
     fun startQuiz(view: View) {
         val api = JsonDataRetrieval()
         //            String encoded = URLEncoder.encode(city.getText().toString(),"UTF-8");
         val result = api.execute(
-            "https://opentdb.com/api.php?amount=10&" + (10 + 9) + "&type=multiple&encode=url3986"
+            "https://opentdb.com/api.php?amount=10&" + (10 + 9) + "&" + difficulty + "&type=multiple&encode=url3986"
         ).get()
         onPostExecute(result)
         val i = Intent(this, QuizActivity::class.java)
