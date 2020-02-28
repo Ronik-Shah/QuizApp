@@ -20,17 +20,20 @@ class QuizActivity : AppCompatActivity() {
         setText()
     }
 
-    fun toPrevQuestion(view: View) {
-        if (StaticData.count == 0) {
-            Snackbar.make(
-                window.decorView.rootView,
-                "This is the first Question",
-                Snackbar.LENGTH_SHORT
-            ).show()
-        } else {
-            StaticData.count--
-            setText()
+    override fun onDestroy() {
+        computeScore()
+        super.onDestroy()
+    }
+
+    fun toNextQuestion(view: View) {
+        try {
+            StaticData.count++
             selectOption()
+            setText()
+            optionsRadioButton.clearCheck()
+        } catch (e: IndexOutOfBoundsException) {
+            computeScore()
+            startActivity(Intent(this, ScoreActivity::class.java))
         }
     }
 
@@ -49,18 +52,6 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    fun toNextQuestion(view: View) {
-        try{
-            StaticData.count++
-            selectOption()
-            setText()
-            optionsRadioButton.clearCheck()
-        } catch (e : IndexOutOfBoundsException) {
-            computeScore()
-            startActivity(Intent(this, ScoreActivity::class.java))
-        }
-    }
-
 
     private fun setText() {
         questionNumber.text = "Question- ${StaticData.count + 1}"
@@ -72,13 +63,13 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun computeScore() {
-        for(i in selectedOptions){
-            Log.i("Selected Answers",i)
+        for (i in selectedOptions) {
+            Log.i("Selected Answers", i)
         }
         Log.i("Selected Answers Size", selectedOptions.size.toString())
 
-        for(i in StaticData.correctAnswers){
-            Log.i("Correct Answers",i)
+        for (i in StaticData.correctAnswers) {
+            Log.i("Correct Answers", i)
         }
         Log.i("Correct Answers Size", StaticData.correctAnswers.size.toString())
 
@@ -87,10 +78,5 @@ class QuizActivity : AppCompatActivity() {
                 StaticData.score += 2
             }
         }
-    }
-
-    override fun onDestroy() {
-        computeScore()
-        super.onDestroy()
     }
 }

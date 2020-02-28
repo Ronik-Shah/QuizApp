@@ -1,16 +1,19 @@
 package com.example.quizapp
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.quizapp.models.DifficultyModel
 import com.example.quizapp.models.StaticData
 import com.example.quizapp.widgets.DifficultyAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.difficulty_item_card.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -26,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
     private var models = ArrayList<DifficultyModel>()
     private lateinit var adapter: DifficultyAdapter
-    private var colors = ArrayList<Int>()
     private var difficultyLevels = Array(3) { i -> "$i"}
+    private var DIFFICULTY_COLOR_ARRAY  = arrayOf(R.color.easyColor,R.color.mediumColor,R.color.hardColor)
     private lateinit var difficulty : String
 
     inner class JsonDataRetrieval : AsyncTask<String, Void, String>() {
@@ -66,13 +69,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeDifficultyCards() {
-        models.add(DifficultyModel("Easy", R.color.easyColor))
-        models.add(DifficultyModel("Medium", R.color.mediumColor))
-        models.add(DifficultyModel("Hard", R.color.hardColor))
+        models.add(DifficultyModel("Easy", DIFFICULTY_COLOR_ARRAY[0])) //R.color.easyColor
+        models.add(DifficultyModel("Medium", DIFFICULTY_COLOR_ARRAY[1])) //R.color.mediumColor
+        models.add(DifficultyModel("Hard", DIFFICULTY_COLOR_ARRAY[2])) //R.color.hardColor
         adapter = DifficultyAdapter(models, this)
-        colors.add(resources.getColor(R.color.easyColor))
-        colors.add(resources.getColor(R.color.mediumColor))
-        colors.add(resources.getColor(R.color.hardColor))
         difficulty_view_pager.adapter = DifficultyAdapter(models, this)
         difficulty_view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
@@ -83,12 +83,10 @@ class MainActivity : AppCompatActivity() {
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-                if (position < adapter.count - 1 && position < colors.size - 1) {
-                    main_activity_constraint_layout.setBackgroundColor(colors[position])
-                    start_button.setBackgroundColor(colors[position])
+                if (position < adapter.count - 1 && position < DIFFICULTY_COLOR_ARRAY.size - 1) {
+                    setBackgroundColor(position)
                 }else{
-                    main_activity_constraint_layout.setBackgroundColor(colors[colors.size - 1])
-                    start_button.setBackgroundColor(colors[colors.size-1])
+                    setBackgroundColor(DIFFICULTY_COLOR_ARRAY.size - 1)
                 }
             }
 
@@ -154,4 +152,11 @@ class MainActivity : AppCompatActivity() {
         //       progressDialog.dismiss();
     }
 
+    private fun setBackgroundColor(position : Int){
+        main_activity_constraint_layout.setBackgroundColor(ContextCompat.getColor(applicationContext,DIFFICULTY_COLOR_ARRAY[position]))
+        start_button.setBackgroundColor(ContextCompat.getColor(applicationContext,DIFFICULTY_COLOR_ARRAY[position]))
+        difficulty_item_card_layout.setBackgroundColor(ContextCompat.getColor(applicationContext,DIFFICULTY_COLOR_ARRAY[position]))
+        difficulty_view_pager.setBackgroundColor(ContextCompat.getColor(applicationContext,DIFFICULTY_COLOR_ARRAY[position]))
+
+    }
 }
