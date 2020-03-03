@@ -1,7 +1,6 @@
 package com.example.quizapp
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
@@ -9,26 +8,36 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
-import com.example.quizapp.models.DifficultyModel
-import com.example.quizapp.models.StaticData
-import com.example.quizapp.widgets.DifficultyAdapter
+
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.difficulty_item_card.*
+
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+
 import java.io.InputStreamReader
 import java.io.UnsupportedEncodingException
+
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLDecoder
 import java.util.*
 
+import com.example.quizapp.models.CategoryModel
+import com.example.quizapp.models.DifficultyModel
+import com.example.quizapp.models.StaticData
+import com.example.quizapp.widgets.CategoryAdapter
+import com.example.quizapp.widgets.DifficultyAdapter
+import com.example.quizapp.models.EnumCategory
+
 
 class MainActivity : AppCompatActivity() {
 
-    private var models = ArrayList<DifficultyModel>()
-    private lateinit var adapter: DifficultyAdapter
+    private var difficultyModels = ArrayList<DifficultyModel>()
+    private var categoryModels = ArrayList<CategoryModel>()
+    private lateinit var difficultyAdapter: DifficultyAdapter
+    private lateinit var categoryAdapter: CategoryAdapter
     private var difficultyLevels = Array(3) { i -> "$i"}
     private var DIFFICULTY_COLOR_ARRAY  = arrayOf(R.color.easyColor,R.color.mediumColor,R.color.hardColor)
     private lateinit var difficulty : String
@@ -60,20 +69,49 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initializeDifficultyCards()
         difficultyLevels[0] = "easy"
         difficultyLevels[1] = "medium"
         difficultyLevels[2] = "hard"
         difficulty = difficultyLevels[0]
+        initializeDifficultyCards()
+        initializeCategoryCards()
+    }
+
+    private fun initializeCategoryCards() {
+        categoryModels.add(CategoryModel("Mathematics",R.color.easyColor)) //R.color.easyColor
+        categoryModels.add(CategoryModel("Science",R.color.mediumColor)) //R.color.easyColor
+        categoryModels.add(CategoryModel("General Knowledge",R.color.hardColor)) //R.color.easyColor
+        categoryAdapter = CategoryAdapter(categoryModels, this)
+        category_view_pager.adapter = CategoryAdapter(categoryModels, this)
+        category_view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                if (position < categoryAdapter.count - 1 && position < DIFFICULTY_COLOR_ARRAY.size - 1) {
+                    setBackgroundColor(position)
+                }else{
+                    setBackgroundColor(DIFFICULTY_COLOR_ARRAY.size - 1)
+                }
+            }
+
+            override fun onPageSelected(position: Int) {
+            }
+
+        })
 
     }
 
     private fun initializeDifficultyCards() {
-        models.add(DifficultyModel("Easy", DIFFICULTY_COLOR_ARRAY[0])) //R.color.easyColor
-        models.add(DifficultyModel("Medium", DIFFICULTY_COLOR_ARRAY[1])) //R.color.mediumColor
-        models.add(DifficultyModel("Hard", DIFFICULTY_COLOR_ARRAY[2])) //R.color.hardColor
-        adapter = DifficultyAdapter(models, this)
-        difficulty_view_pager.adapter = DifficultyAdapter(models, this)
+        difficultyModels.add(DifficultyModel("Easy", DIFFICULTY_COLOR_ARRAY[0])) //R.color.easyColor
+        difficultyModels.add(DifficultyModel("Medium", DIFFICULTY_COLOR_ARRAY[1])) //R.color.mediumColor
+        difficultyModels.add(DifficultyModel("Hard", DIFFICULTY_COLOR_ARRAY[2])) //R.color.hardColor
+        difficultyAdapter = DifficultyAdapter(difficultyModels, this)
+        difficulty_view_pager.adapter = DifficultyAdapter(difficultyModels, this)
         difficulty_view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
@@ -83,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-                if (position < adapter.count - 1 && position < DIFFICULTY_COLOR_ARRAY.size - 1) {
+                if (position < difficultyAdapter.count - 1 && position < DIFFICULTY_COLOR_ARRAY.size - 1) {
                     setBackgroundColor(position)
                 }else{
                     setBackgroundColor(DIFFICULTY_COLOR_ARRAY.size - 1)
