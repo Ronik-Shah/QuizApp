@@ -7,7 +7,7 @@ enum class EnumCategory(val categoryNumber : Int){
     Music(12),
     MusicalAndTheaters(13),
     Television(14),
-    VedioGames(15),
+    VideoGames(15),
     BoardGames(16),
     ScienceNature(17),
     Computers(18),

@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private var difficultyLevels = Array(3) { i -> "$i"}
     private var DIFFICULTY_COLOR_ARRAY  = arrayOf(R.color.easyColor,R.color.mediumColor,R.color.hardColor)
     private lateinit var difficulty : String
+    private var category : Int = 0
 
     inner class JsonDataRetrieval : AsyncTask<String, Void, String>() {
 
@@ -78,9 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeCategoryCards() {
-        categoryModels.add(CategoryModel("Mathematics",R.color.easyColor)) //R.color.easyColor
-        categoryModels.add(CategoryModel("Science",R.color.mediumColor)) //R.color.easyColor
-        categoryModels.add(CategoryModel("General Knowledge",R.color.hardColor)) //R.color.easyColor
+        fillCategoryModel()
         categoryAdapter = CategoryAdapter(categoryModels, this)
         category_view_pager.adapter = CategoryAdapter(categoryModels, this)
         category_view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -100,6 +99,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
+                category = EnumCategory.values()[position].categoryNumber
+                println(category)
             }
 
         })
@@ -130,17 +131,22 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 difficulty = difficultyLevels[position]
-                println(difficulty)
             }
 
         })
+    }
+
+    private fun fillCategoryModel(){
+        for(i in 0..21){
+            categoryModels.add(CategoryModel(EnumCategory.values()[i].toString(),R.color.colorPrimaryDark)) //R.color.easyColor
+        }
     }
 
     fun startQuiz(view: View) {
         val api = JsonDataRetrieval()
         //            String encoded = URLEncoder.encode(city.getText().toString(),"UTF-8");
         val result = api.execute(
-            "https://opentdb.com/api.php?amount=10&" + (10 + 9) + "&" + difficulty + "&type=multiple&encode=url3986"
+            "https://opentdb.com/api.php?amount=10&category=$category&difficulty=$difficulty&type=multiple&encode=url3986"
         ).get()
         onPostExecute(result)
         val i = Intent(this, QuizActivity::class.java)
