@@ -8,5 +8,12 @@
     <string name="question_number">Rules</string>
     <string name="next">TODO</string>
     <string name="easy">Easy</string>
-    <string name="category">category</string>
+    <string name="category_drop_down">Select Category :</string>
+    <string name="difficulty_drop_down">Select Difficulty :</string>
+    <string name="next_button_text">Next</string>
+    <string name="restart_text">&#160;&#160;&#160;&#160;&#160;Play Again&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="score_text">You scored :</string>
+    <string name="rules">Rules</string>
+    <string name="rule_points">1. There are 10 questions.\n2. Each question is of 1 point.\n3. There are no negative marks.</string>
+    <string name="start">Start</string>
 </resources>

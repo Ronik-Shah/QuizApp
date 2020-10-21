@@ -9,74 +9,61 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.quizapp.models.StaticData
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_quiz.*
+import java.util.*
 
-class QuizActivity : AppCompatActivity() {
+class QuizActivity : AppCompatActivity(), View.OnClickListener {
 
-    var selectedOptions = ArrayList<String>()
+    private lateinit var radioButtons: Array<RadioButton>
+    private lateinit var options: Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        setText()
+        radioButtons = arrayOf(radioButtonA, radioButtonB, radioButtonC, radioButtonD)
+        nextButton.setOnClickListener(this)
+        for (radioButton in radioButtons)
+            radioButton.setOnClickListener(this)
+        setQuestion()
     }
 
-    override fun onDestroy() {
-        computeScore()
-        super.onDestroy()
-    }
-
-    fun toNextQuestion(view: View) {
-        try {
-            StaticData.count++
-            selectOption()
-            setText()
-            optionsRadioButton.clearCheck()
-        } catch (e: IndexOutOfBoundsException) {
-            computeScore()
-            startActivity(Intent(this, ScoreActivity::class.java))
+    private fun setQuestion() {
+        val curr = StaticData.count
+        options = StaticData.questions[curr].getOptions()
+        questionNumber.text = "Question ${curr + 1}"
+        questionContent.text = StaticData.questions[curr].getQuestion()
+        for (i in radioButtons.indices) {
+            radioButtons[i].text = options[i]
         }
+
     }
 
-    private fun selectOption() {
-        val id = optionsRadioButton.checkedRadioButtonId
-        val radioButton = findViewById<RadioButton>(id)
-        if (radioButton == null) {
-            Snackbar.make(
-                window.decorView.rootView,
-                "No option selected",
-                Snackbar.LENGTH_SHORT
-            ).show()
-            selectedOptions.add("NULL")
-        } else {
-            selectedOptions.add(radioButton.text.toString())
-        }
-    }
-
-
-    private fun setText() {
-        questionNumber.text = "Question- ${StaticData.count + 1}"
-        questionContent.text = StaticData.questions[StaticData.count]
-        radioButtonA.text = StaticData.options[StaticData.count][0]
-        radioButtonB.text = StaticData.options[StaticData.count][1]
-        radioButtonC.text = StaticData.options[StaticData.count][2]
-        radioButtonD.text = StaticData.options[StaticData.count][3]
-    }
-
-    private fun computeScore() {
-        for (i in selectedOptions) {
-            Log.i("Selected Answers", i)
-        }
-        Log.i("Selected Answers Size", selectedOptions.size.toString())
-
-        for (i in StaticData.correctAnswers) {
-            Log.i("Correct Answers", i)
-        }
-        Log.i("Correct Answers Size", StaticData.correctAnswers.size.toString())
-
-        for (i in 0 until selectedOptions.size) {
-            if (selectedOptions[i] == StaticData.correctAnswers[i]) {
-                StaticData.score += 2
+    override fun onClick(p0: View?) {
+        if (p0 != null) {
+            if (p0.id == nextButton.id) {
+                val radioButtonId = options_radio_group.checkedRadioButtonId
+                val index = options_radio_group.indexOfChild(findViewById(radioButtonId))
+                if (index < 0) {
+                    Snackbar.make(
+                        p0,
+                        "Please choose a option!",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                } else {
+                    StaticData.selectedOptions.add(options[index])
+                    options_radio_group.clearCheck()
+                    StaticData.count++
+                    if(StaticData.count < 10) {
+                        setQuestion()
+                    } else {
+                        val intent = Intent(this, ScoreActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        Snackbar.make(quiz_activity_layout.rootView,"Back is not allowed here!",Snackbar.LENGTH_SHORT).show()
     }
 }
