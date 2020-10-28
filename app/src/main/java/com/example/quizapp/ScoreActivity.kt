@@ -41,6 +41,7 @@ class ScoreActivity : AppCompatActivity(),View.OnClickListener {
             if(p0.id == restartButton.id){
                 initializeValues()
                 startActivity(Intent(this,MainActivity::class.java))
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
             }
         }
     }
@@ -49,6 +50,7 @@ class ScoreActivity : AppCompatActivity(),View.OnClickListener {
         initializeValues()
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
 
     }
 

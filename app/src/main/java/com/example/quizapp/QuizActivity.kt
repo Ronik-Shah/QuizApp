@@ -57,6 +57,7 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
                     } else {
                         val intent = Intent(this, ScoreActivity::class.java)
                         startActivity(intent)
+                        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
                     }
                 }
             }
@@ -64,6 +65,6 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onBackPressed() {
-        Snackbar.make(quiz_activity_layout.rootView,"Back is not allowed here!",Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(quiz_activity_layout,"Back is not allowed here!",Snackbar.LENGTH_SHORT).show()
     }
 }

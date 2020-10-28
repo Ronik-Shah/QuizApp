@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
         if (StaticData.questions.size > 0) {
             val i = Intent(this, QuizActivity::class.java)
             startActivity(i)
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
         }else{
             Snackbar.make(view,"Sorry an internal error occured", Snackbar.LENGTH_SHORT).show()
         }
