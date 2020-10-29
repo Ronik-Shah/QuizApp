@@ -52,7 +52,12 @@ There is no going to next question unless an option is selected.
 The score page consists of :
 - **Score** : Your score in quiz.
 - **Play Again**: This will take you to home page for playing again.
-- 
+
+Pressing back button will also take you to home page.
+
+## Further Improvements
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMwMDE0NDI2LDEwNDQ4OTM2MzZdfQ==
+eyJoaXN0b3J5IjpbLTg1NTAxNzg3NiwxMDQ0ODkzNjM2XX0=
 -->
