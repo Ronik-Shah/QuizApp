@@ -57,7 +57,10 @@ Pressing back button will also take you to home page.
 
 ## Further Improvements
 
-
+The further improvements can be :
+- Add score storing mechanism.
+- Add highest score 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1NTAxNzg3NiwxMDQ0ODkzNjM2XX0=
+eyJoaXN0b3J5IjpbMTc1MjE0NDcxNiwtODU1MDE3ODc2LDEwND
+Q4OTM2MzZdfQ==
 -->
