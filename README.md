@@ -13,8 +13,8 @@ This is a simple application on Quiz. The app contains :
 
 The application runs on **Trivia Quiz Api**.
 
-<image  src="markdown_images/HomePage.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/QuizPage.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<image  src="markdown_images/ScorePage.png"  height = "400px"  width = "25%">
+<image  src="markdown_images/HomePage.png"  height = "400px"  width = "30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/QuizPage.png"  height = "400px"  width = "30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<image  src="markdown_images/ScorePage.png"  height = "400px"  width = "30%">
 
   
   
@@ -29,7 +29,7 @@ This page contains :
 - **Start**: This button will start the quiz(Note: After pressing the start button the app may freeze as it is taking out questions!)
 You can select them using the drop down menu.
 
-<image  src="markdown_images/CategoryOpen.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/DifficultyOpen.png"  height = "400px"  width = "25%">
+<image  src="markdown_images/CategoryOpen.png"  height = "400px"  width = "30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/DifficultyOpen.png"  height = "400px"  width = "30%">
 
 ## Quiz Page
 
@@ -41,8 +41,8 @@ This page is the actual quiz. It consists of :
 
 There is no backtracking. No back button pressing is allowed. There is no going to next question unless an option is selected.
 
-<img src="markdown_images/BackButton.png" height="400px" width="25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="markdown_images/NextButton.png" height="400px" width="25%">
+<img src="markdown_images/BackButton.png" height="400px" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="markdown_images/NextButton.png" height="400px" width="30%">
 ## Score Page
 
 The score page consists of :
@@ -63,6 +63,6 @@ The further improvements can be :
 
 You can download the app from [here](https://drive.google.com/file/d/1faPUosycqRHaw4gAPgsch67cqNh49ISh/view?usp=sharing).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg1NDgwODQ2LDE1NTY1Njk2LC04NTUwMT
-c4NzYsMTA0NDg5MzYzNl19
+eyJoaXN0b3J5IjpbMTI1NzY1NzU2NCwyODU0ODA4NDYsMTU1Nj
+U2OTYsLTg1NTAxNzg3NiwxMDQ0ODkzNjM2XX0=
 -->
