@@ -39,14 +39,10 @@ This page is the actual quiz. It consists of :
 - **Options**: There are 4 options. Only one of them is correct.
 - **Next**: This button will take to next question.
 
-There is no backtracking. No back button pressing is allowed.
+There is no backtracking. No back button pressing is allowed. There is no going to next question unless an option is selected.
 
-<img src="markdown_images/BackButton.png" height="400px" width="25%">
-
-There is no going to next question unless an option is selected.
-
+<img src="markdown_images/BackButton.png" height="400px" width="25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="markdown_images/NextButton.png" height="400px" width="25%">
-
 ## Score Page
 
 The score page consists of :
@@ -65,8 +61,8 @@ The further improvements can be :
 
 ## Download
 
-You can download app from here.
+You can download the app from here.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY2NDIxNjU5LC04NTUwMTc4NzYsMTA0ND
-g5MzYzNl19
+eyJoaXN0b3J5IjpbMTU1NjU2OTYsLTg1NTAxNzg3NiwxMDQ0OD
+kzNjM2XX0=
 -->
