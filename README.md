@@ -62,8 +62,9 @@ The further improvements can be :
 ## Download
 
 You can download the app from [here](https://drive.google.com/file/d/1faPUosycqRHaw4gAPgsch67cqNh49ISh/view?usp=sharing).
+
 Min sdk version required is Android Pie.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTQ5NjY4OTQsMjg1NDgwODQ2LDE1NT
-Y1Njk2LC04NTUwMTc4NzYsMTA0NDg5MzYzNl19
+eyJoaXN0b3J5IjpbLTU4NjE2MTA4OCwyODU0ODA4NDYsMTU1Nj
+U2OTYsLTg1NTAxNzg3NiwxMDQ0ODkzNjM2XX0=
 -->
