@@ -22,15 +22,17 @@ The application runs on **Trivia Quiz Api**.
 ## Home Page
 
   
-The first half of the page contains 
-This page gives a overview and settings for your quiz.
-You can change :
-- **Difficutly levels** : Easy, Medium,Hard
+This page contains :
+- **Rules** : 10 questions, all single correct, 
 - **Categories**: A wide range of categories are avaliable.
 
 You can select them using the drop down menu.
 
 <image  src="markdown_images/CategoryOpen.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/DifficultyOpen.png"  height = "400px"  width = "25%">
+
+## Quiz Page
+
+This
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM3MDYxNjE5XX0=
+eyJoaXN0b3J5IjpbMTA3OTk0NDA2Ml19
 -->
