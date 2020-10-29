@@ -35,8 +35,12 @@ You can select them using the drop down menu.
 
 This page is the actual quiz. It consists of :
 - **Question number** : This contains the question number.
-- **Question**: This
-- **
+- **Question**: This is the acutual question
+- **Options**: There are 4 options. Only one of them is correct.
+-**Next**: This button will take to next question.
+
+There is no backtracking. No back button pressing is allowed.
+<i 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxMDY3NTQxNiwxMDQ0ODkzNjM2XX0=
+eyJoaXN0b3J5IjpbMTQ3OTA0NDA1MSwxMDQ0ODkzNjM2XX0=
 -->
