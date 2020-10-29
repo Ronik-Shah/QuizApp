@@ -13,8 +13,8 @@ This is a simple application on Quiz. The app contains :
 
 The application runs on **Trivia Quiz Api**.
 
-<image  src="markdown_images/HomePage.png"  height = "200px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/QuizPage.png"  height = "200px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<image  src="markdown_images/ScorePage.png"  height = "200px"  width = "25%">
+<image  src="markdown_images/HomePage.png"  height = "300px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/QuizPage.png"  height = "300px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<image  src="markdown_images/ScorePage.png"  height = "300px"  width = "25%">
 
   
   
@@ -30,5 +30,5 @@ You can change :
 
 You can select them using the drop down menu.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwMzMwMDUzNl19
+eyJoaXN0b3J5IjpbMjAyMTQ0NzU0M119
 -->
