@@ -37,15 +37,15 @@ This page is the actual quiz. It consists of :
 - **Question number** : This contains the question number.
 - **Question**: This is the acutual question
 - **Options**: There are 4 options. Only one of them is correct.
--**Next**: This button will take to next question.
+- **Next**: This button will take to next question.
 
 There is no backtracking. No back button pressing is allowed.
-<img src="markdown_images/BackButton" height="400px" width="25%">
+<img src="markdown_images/BackButton.png" height="400px" width="25%">
 
 There is no going to next question unless an option is selected.
-<img src="markdown_images/NextButton" height="400px" width="25%">
+<img src="markdown_images/NextButton.png" height="400px" width="25%">
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTIxMjc1MDQsMTA0NDg5MzYzNl19
+eyJoaXN0b3J5IjpbLTEyMTA5NDU2MDgsMTA0NDg5MzYzNl19
 -->
