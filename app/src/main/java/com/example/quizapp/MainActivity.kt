@@ -1,9 +1,6 @@
 package com.example.quizapp
 
 import android.app.AlertDialog
-import android.app.PendingIntent.getActivity
-import android.app.ProgressDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
@@ -26,6 +23,7 @@ import java.io.UnsupportedEncodingException
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLDecoder
+import java.net.UnknownHostException
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.system.exitProcess
@@ -121,6 +119,8 @@ class MainActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
         } catch (e: JSONException) {
             e.printStackTrace()
         } catch (e: UnsupportedEncodingException) {
+            e.printStackTrace()
+        }catch(e: UnknownHostException){
             e.printStackTrace()
         }
     }
