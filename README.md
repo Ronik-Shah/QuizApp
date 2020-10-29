@@ -1,5 +1,5 @@
 # QuizApp
-A simple quiz app.
+This is a simple Quiz App.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1NTkxMjc5OF19
+eyJoaXN0b3J5IjpbMTc5MDIyMzQwMl19
 -->
