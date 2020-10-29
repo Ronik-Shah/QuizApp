@@ -40,7 +40,7 @@ This page is the actual quiz. It consists of :
 -**Next**: This button will take to next question.
 
 There is no backtracking. No back button pressing is allowed.
-<i 
+<img src="markdown_images/BackButton" height="400px" width=
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3OTA0NDA1MSwxMDQ0ODkzNjM2XX0=
+eyJoaXN0b3J5IjpbMjkzNzQ0OTE5LDEwNDQ4OTM2MzZdfQ==
 -->
