@@ -26,14 +26,15 @@ This page contains :
 - **Rules** : 10 questions, all single correct, no backtraking, no next question without selecting a option.
 - **Categories**: A wide range of categories are avaliable.
 - **Difficulties**: Three levels : Easy, Medium, Hard.
-- **Start**: This button will 
+- **Start**: This button will start the quiz(Note: After pressing the start button the app may freeze as it is taking out questions!)
 You can select them using the drop down menu.
 
 <image  src="markdown_images/CategoryOpen.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/DifficultyOpen.png"  height = "400px"  width = "25%">
 
 ## Quiz Page
 
-This
+This page is the actual quiz. It consists of :
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzMjgwOTE1OF19
+eyJoaXN0b3J5IjpbMTEyMTc1MjM2M119
 -->
