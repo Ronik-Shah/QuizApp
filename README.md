@@ -41,7 +41,7 @@ This page is the actual quiz. It consists of :
 
 There is no backtracking. No back button pressing is allowed. There is no going to next question unless an option is selected.
 
-<img src="markdown_images/BackButton.png" height="400px" width="25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[enter link description here](https://drive.google.com/file/d/1faPUosycqRHaw4gAPgsch67cqNh49ISh/view?usp=sharing)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="markdown_images/BackButton.png" height="400px" width="25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="markdown_images/NextButton.png" height="400px" width="25%">
 ## Score Page
 
@@ -61,8 +61,8 @@ The further improvements can be :
 
 ## Download
 
-You can download the app from here.
+You can download the app from [here](https://drive.google.com/file/d/1faPUosycqRHaw4gAPgsch67cqNh49ISh/view?usp=sharing).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5MjQyMjAzNCwxNTU2NTY5NiwtODU1MD
-E3ODc2LDEwNDQ4OTM2MzZdfQ==
+eyJoaXN0b3J5IjpbMjg1NDgwODQ2LDE1NTY1Njk2LC04NTUwMT
+c4NzYsMTA0NDg5MzYzNl19
 -->
