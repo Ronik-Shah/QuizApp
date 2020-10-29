@@ -40,12 +40,14 @@ This page is the actual quiz. It consists of :
 - **Next**: This button will take to next question.
 
 There is no backtracking. No back button pressing is allowed.
+
 <img src="markdown_images/BackButton.png" height="400px" width="25%">
 
 There is no going to next question unless an option is selected.
+
 <img src="markdown_images/NextButton.png" height="400px" width="25%">
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTA5NDU2MDgsMTA0NDg5MzYzNl19
+eyJoaXN0b3J5IjpbMTc4ODcwMjMyOCwxMDQ0ODkzNjM2XX0=
 -->
