@@ -23,7 +23,7 @@ The application runs on **Trivia Quiz Api**.
 
   
 This page contains :
-- **Rules** : 10 questions, all single correct, 
+- **Rules** : 10 questions, all single correct, no backtraking, no next question without selecting a option, 
 - **Categories**: A wide range of categories are avaliable.
 
 You can select them using the drop down menu.
@@ -34,5 +34,5 @@ You can select them using the drop down menu.
 
 This
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3OTk0NDA2Ml19
+eyJoaXN0b3J5IjpbMTYzMjYyNTU0Ml19
 -->
