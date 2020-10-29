@@ -47,7 +47,12 @@ There is no going to next question unless an option is selected.
 
 <img src="markdown_images/NextButton.png" height="400px" width="25%">
 
+## Score Page
 
+The score page consists of :
+- **Score** : Your score in quiz.
+- **Play Again**: This will take you to home page for playing again.
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4ODcwMjMyOCwxMDQ0ODkzNjM2XX0=
+eyJoaXN0b3J5IjpbMzMwMDE0NDI2LDEwNDQ4OTM2MzZdfQ==
 -->
