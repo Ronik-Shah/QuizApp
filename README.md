@@ -59,8 +59,14 @@ Pressing back button will also take you to home page.
 
 The further improvements can be :
 - Add score storing mechanism.
-- Add highest score 
+- Add highest score functionality.
+- Add functionality to go to previous question.
+-  Add functionality to go to next question without selecting options.
+
+## Download
+
+You can download app from here.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1MjE0NDcxNiwtODU1MDE3ODc2LDEwND
-Q4OTM2MzZdfQ==
+eyJoaXN0b3J5IjpbODY2NDIxNjU5LC04NTUwMTc4NzYsMTA0ND
+g5MzYzNl19
 -->
