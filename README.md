@@ -13,8 +13,8 @@ This is a simple application on Quiz. The app contains :
 
 The application runs on **Trivia Quiz Api**.
 
-<image  src="markdown_images/HomePage.png"  height = "400px"  width = "30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/QuizPage.png"  height = "400px"  width = "30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<image  src="markdown_images/ScorePage.png"  height = "400px"  width = "30%">
+<image  src="markdown_images/HomePage.png"  height = "400px"  width = "30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/QuizPage.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<image  src="markdown_images/ScorePage.png"  height = "400px"  width = "25%">
 
   
   
@@ -29,7 +29,7 @@ This page contains :
 - **Start**: This button will start the quiz(Note: After pressing the start button the app may freeze as it is taking out questions!)
 You can select them using the drop down menu.
 
-<image  src="markdown_images/CategoryOpen.png"  height = "400px"  width = "2%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/DifficultyOpen.png"  height = "400px"  width = "25%">
+<image  src="markdown_images/CategoryOpen.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/DifficultyOpen.png"  height = "400px"  width = "25%">
 
 ## Quiz Page
 
@@ -63,6 +63,6 @@ The further improvements can be :
 
 You can download the app from [here](https://drive.google.com/file/d/1faPUosycqRHaw4gAPgsch67cqNh49ISh/view?usp=sharing).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY1MTk4NTc5LDI4NTQ4MDg0NiwxNTU2NT
+eyJoaXN0b3J5IjpbMzkzNTU2MzkyLDI4NTQ4MDg0NiwxNTU2NT
 Y5NiwtODU1MDE3ODc2LDEwNDQ4OTM2MzZdfQ==
 -->
