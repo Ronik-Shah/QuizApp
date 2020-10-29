@@ -35,8 +35,8 @@ You can select them using the drop down menu.
 
 This page is the actual quiz. It consists of :
 - **Question number** : This contains the question number.
-- **T
+- **Question**: This
 - **
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NDg5MzYzNl19
+eyJoaXN0b3J5IjpbLTgxMDY3NTQxNiwxMDQ0ODkzNjM2XX0=
 -->
