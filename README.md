@@ -29,6 +29,7 @@ You can change :
 - **Categories**: A wide range of categories are avaliable.
 
 You can select them using the drop down menu.
+<image  src="markdown_images/CategoryOpen.png"  height = "400px"  width = "25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image  src="markdown_images/DifficultyOpen.png"  height = "400px"  width = "25%">
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTUzNzI3NDZdfQ==
+eyJoaXN0b3J5IjpbNTU5MzI2OTE3XX0=
 -->
